@@ -1,3 +1,8 @@
+**** READMEs for the exercises are outdated and reference files that no longer exist
+    - such as `strings.rb`...instead you will find this type of file structure: `strings_spec.rb`
+    - run command `rspec strings_spec.rb` in terminal AFTER you `cd` into `strings` and `spec` directories
+
+
 # Ruby Exercises
 
 This is a collection of exercises to practice various aspects of Ruby.
