@@ -1,5 +1,6 @@
-require './spec/spec-helper'
-require './lib/ogre'
+require 'rspec'
+require '../lib/ogre'
+require '../lib/human'
 
 RSpec.describe Ogre do
   it 'has a name' do
@@ -12,13 +13,13 @@ RSpec.describe Ogre do
     expect(ogre.home).to eq('Swamp')
   end
 
-  it 'doesnt have to live in a swamp' do
+  it'doesnt have to live in a swamp' do
     ogre = Ogre.new('Brak', 'Castle')
 
     expect(ogre.home).to eq('Castle')
   end
 
-  it 'can meets humans' do
+  it'can meets humans' do
     ogre = Ogre.new('Brak')
     human = Human.new
     expect(human.name).to eq('Jane')
@@ -28,7 +29,7 @@ RSpec.describe Ogre do
     expect(human.encounter_counter).to eq(1)
   end
 
-  it 'is noticed by humans every third encounter' do
+ it'is noticed by humans every third encounter' do
     ogre = Ogre.new('Brak')
     human = Human.new
 
@@ -41,7 +42,7 @@ RSpec.describe Ogre do
     expect(human.notices_ogre?).to be true
   end
 
-  it 'is noticed by humans the sixth time' do
+ it'is noticed by humans the sixth time' do
     ogre = Ogre.new('Brak')
     human = Human.new
 
@@ -50,7 +51,7 @@ RSpec.describe Ogre do
     expect(human.notices_ogre?).to be true
   end
 
-  it 'can swing a club' do
+ it'can swing a club' do
     ogre = Ogre.new('Brak')
     human = Human.new
 
@@ -59,7 +60,7 @@ RSpec.describe Ogre do
     expect(ogre.swings).to eq(1)
   end
 
-  it 'swings its club when noticed by a human' do
+ it'swings its club when noticed by a human' do
     ogre = Ogre.new('Brak')
     human = Human.new
     ogre.encounter(human)
@@ -73,7 +74,7 @@ RSpec.describe Ogre do
     expect(human.notices_ogre?).to be true
   end
 
-  it 'hits the human every second time it swings' do
+  it'hits the human every second time it swings' do
     ogre = Ogre.new('Brak')
     human = Human.new
 
@@ -84,7 +85,7 @@ RSpec.describe Ogre do
     expect(human.knocked_out?).to be true
   end
 
-  it 'apologizes and the human wakes up' do
+  it'apologizes and the human wakes up' do
     ogre = Ogre.new('Brak')
     human = Human.new
 
