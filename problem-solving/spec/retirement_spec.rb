@@ -1,4 +1,5 @@
-require "./lib/retirement"
+require "rspec"
+require "../lib/retirement"
 
 RSpec.describe Retirement do
 
@@ -6,7 +7,7 @@ RSpec.describe Retirement do
     retire = Retirement.new
 
     result = retire.calculate(25, 65)
-    expected = "You have 40 years left until you can retire. It is 2015, so you can retire in 2055."
+    expected = "You have 40 years left until you can retire. It is 2022, so you can retire in 2062."
 
     expect(result).to eq(expected)
   end
@@ -15,7 +16,7 @@ RSpec.describe Retirement do
     retire = Retirement.new
 
     result = retire.calculate(39, 70)
-    expected = "You have 31 years left until you can retire. It is 2015, so you can retire in 2046."
+    expected = "You have 31 years left until you can retire. It is 2022, so you can retire in 2053."
 
     expect(result).to eq(expected)
   end
@@ -30,7 +31,11 @@ RSpec.describe Retirement do
   end
 
   it 'errors with a negative retirement age' do
-    # write your test here
+    retire = Retirement.new
+
+    result = retire.calculate(64, 15)
+    expected = "Error. Retirment age cannot be less than current age."
+
+    expect(result).to eq(expected)
   end
 end
-
